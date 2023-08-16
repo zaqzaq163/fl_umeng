@@ -1,8 +1,7 @@
 def localProperties = new Properties()
 def localPropertiesFile = rootProject.file('local.properties')
 if (localPropertiesFile.exists()) {
-    localPropertiesFile.withReader('UTF-8') { reader ->
-        localProperties.load(reader)
+    localPropertiesFile.withReader('UTF-8') { reader -> localProperties.load(reader)
     }
 }
 
@@ -26,7 +25,7 @@ apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
-    compileSdkVersion 33
+    compileSdk 33
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
@@ -45,6 +44,8 @@ android {
         targetSdkVersion 33
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+        manifestPlaceholders = [UMENG_APPKEY    : "5f8fe2abfac90f1c19a8642e",
+                                umengChannel: "umeng"]
     }
 
     buildTypes {

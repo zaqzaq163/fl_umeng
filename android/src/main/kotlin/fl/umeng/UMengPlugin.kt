@@ -26,7 +26,6 @@ open class UMengPlugin : FlutterPlugin, MethodChannel.MethodCallHandler {
             "init" -> {
                 val key = call.argument<String>("appKey")
                 val channel = call.argument<String>("channel")
-                UMConfigure.preInit(context, key, channel)
                 UMConfigure.submitPolicyGrantResult(context, true)
                 UMConfigure.init(context, key, channel, UMConfigure.DEVICE_TYPE_PHONE, null)
                 result.success(true)

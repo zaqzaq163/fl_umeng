@@ -1,7 +1,6 @@
 # 友盟统计 for Flutter
 
-- 3.5.0 更新
-    - 移除预初始化，只调用一次初始化即可
+- 3.6.0 更新 初始化步骤
 
 - 3.0.0 更新
     - 移除APM 性能监测 如需要直接使用[fl_umeng_apm](https://pub.dev/packages/fl_umeng_apm)
@@ -92,25 +91,4 @@ void fun() {
   /// 错误发送  仅支持 Android
   FlUMeng().report Error();
 }
-```
-
-## android 如遇到 Duplicate class com.google.common.util.concurrent.ListenableFuture的错误
-
-```shell script
-* What went wrong:
-Execution failed for task ':app:checkDebugDuplicateClasses'.
-> 1 exception was raised by workers:
-  java.lang.RuntimeException: Duplicate class com.google.common.util.concurrent.ListenableFuture found in modules jetified-guava-20.0.jar (com.google.guava:guava:20.0) and jetified-listenablefuture-1.0.jar (com.google.guava:listenablefuture:1.0)
-
-  Go to the documentation to learn how to <a href="d.android.com/r/tools/classpath-sync-errors">Fix dependency resolution errors</a>.
-```
-
-android/app/build.gradle 添加以下代码
-
-```groovy
-
-configurations {
-    all*.exclude group: 'com.google.guava', module: 'listenablefuture'
-}
-
 ```

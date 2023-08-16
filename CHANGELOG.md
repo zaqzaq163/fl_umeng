@@ -1,3 +1,5 @@
+## 3.6.0
+
 ## 3.5.0
 
 * To remove `preinit`, you only need to initialize it once
